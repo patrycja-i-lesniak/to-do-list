@@ -8,4 +8,7 @@ html {
     box-sizing: inherit;
   }
   
-  
+.body {
+    background-color:rgb(241 240 242);
+    font-family: "Montserrat", sans-serif;
+} 
