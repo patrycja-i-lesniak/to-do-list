@@ -11,4 +11,6 @@ html {
 .body {
     background-color:rgb(241 240 242);
     font-family: "Montserrat", sans-serif;
+    max-width: 800px;
+    margin:auto;
 } 
