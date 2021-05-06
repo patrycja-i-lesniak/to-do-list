@@ -5,7 +5,6 @@
       done: false,
     },
     {
-    
       content: "przerobić lekcję z hiszpańskiego",
       done: true,
     },
@@ -19,10 +18,16 @@
   };
 
   const removeTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
-        render();
-      
+    tasks.splice(taskIndex, 1);
+    render();
   };
+
+
+const toggleTaskDone = (taskIndex) => {
+tasks[taskIndex].done = !tasks[taskIndex].done;
+render();
+};
+
 
   const render = () => {
     let htmlString = "";
@@ -33,27 +38,36 @@
     
         ${task.done ? ' style="text-decoration: line-through"' : ""}
         >
-        
+        <button class="doneButton js-doneButton">zrobione?</button>
        
         ${task.content}
          <button class="removeButton js-removeButton">usuń</button>
     </li>
     `;
     }
+
     document.querySelector(".js-tasks").innerHTML = htmlString;
- 
 
-  const removeButtons = document.querySelectorAll(".js-removeButton");
+    const removeButtons = document.querySelectorAll(".js-removeButton");
 
-  removeButtons.forEach((removeButton, index) => {
-removeButton.addEventListener("click", () => {
-    removeTask(index);
+    removeButtons.forEach((removeButton, index) => {
+      removeButton.addEventListener("click", () => {
+        removeTask(index);
+      });
+    });
 
-});
-  });
-   
- };
- 
+    const doneButtons = document.querySelectorAll(".js-doneButton");
+
+    doneButtons.forEach((doneButton, index) => {
+      doneButton.addEventListener("click", () => {
+        toggleTaskDone(index);
+      });
+    });
+
+
+  };
+
+  
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -62,10 +76,10 @@ removeButton.addEventListener("click", () => {
 
     if (newTaskContent === "") {
       return;
-    };
+    }
 
     addNewTask(newTaskContent);
-  }
+  };
   const init = () => {
     render();
 
