@@ -1,16 +1,21 @@
 html {
-    box-sizing: border-box;
-  }
-  
-  *,
-  ::after,
-  ::before {
-    box-sizing: inherit;
-  }
-  
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
 .body {
-    background-color:rgb(241 240 242);
-    font-family: "Montserrat", sans-serif;
-    max-width: 800px;
-    margin:auto;
-} 
+  background-color:rgb(241 240 242);
+  font-family: "Montserrat", sans-serif;
+  font-size: smaller;
+  max-width: 800px;
+  margin: auto;
+}
+
+.headline {
+    margin:10px; 
+}
