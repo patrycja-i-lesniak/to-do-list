@@ -10,8 +10,10 @@
     },
   ];
 
+
+
   const addNewTask = (newTaskContent) => {
-    tasks.push({ content: newTaskContent });
+    tasks.push({content: newTaskContent,});
     render();
   };
 
@@ -20,28 +22,32 @@
     render();
   };
 
-  const toggleTaskDone = (taskIndex) => {
-    tasks[taskIndex].done = !tasks[taskIndex].done;
-    render();
-  };
 
-  const bindEvents = () => {
-    const removeButtons = document.querySelectorAll(".js-removeButton");
 
-    removeButtons.forEach((removeButton, index) => {
-      removeButton.addEventListener("click", () => {
+
+const toggleTaskDone = (taskIndex) => {
+tasks[taskIndex].done = !tasks[taskIndex].done;
+render();
+};
+
+const bindEvents = () => {
+    const removeIcons = document.querySelectorAll(".js-removeIcon");
+
+    removeIcons.forEach((removeIcon, index) => {
+      removeIcon.addEventListener("click", () => {
         removeTask(index);
       });
     });
 
-    const doneButtons = document.querySelectorAll(".js-doneButton");
+    const doneIcons = document.querySelectorAll(".js-doneIcon");
 
-    doneButtons.forEach((doneButton, index) => {
-      doneButton.addEventListener("click", () => {
+    doneIcons.forEach((doneIcon, index) => {
+      doneIcon.addEventListener("click", () => {
         toggleTaskDone(index);
       });
     });
-  };
+};
+
 
   const render = () => {
     let htmlString = "";
@@ -52,10 +58,13 @@
     
         ${task.done ? ' style="text-decoration: line-through"' : ""}
         >
-        <button class="doneButton js-doneButton">zrobione?</button>
+        
+
+        <img class="doneIcon js-doneIcon" src="https://i.ibb.co/zbGNRVr/uncheck-mark-25px.png" alt="uncheck-mark-25px" border="0" />
+        
        
         ${task.content}
-         <button class="removeButton js-removeButton">usuń</button>
+        <img class="removeIcon js-removeIcon" src="https://i.ibb.co/SRKnmct/trash-25px.png" alt="trash-25px" border="0" />
     </li>
     `;
     }
@@ -63,7 +72,11 @@
     document.querySelector(".js-tasks").innerHTML = htmlString;
 
     bindEvents();
+
+
   };
+
+  
 
   const onFormSubmit = (event) => {
     event.preventDefault();
