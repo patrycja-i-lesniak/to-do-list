@@ -1,0 +1,32 @@
+.list__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 1px #ddd;
+  padding: 10px 0;
+}
+
+.list__span {
+  flex-grow: 1;
+}
+
+.list__span--done {
+  text-decoration-line: line-through;
+}
+
+.list__button {
+  height: 25px;
+  color: white;
+  border: none;
+  flex-wrap: nowrap;
+  font-size: larger;
+  background-color: green;
+  margin-right: 20px;
+  flex: 0 0 25px;
+  
+}
+
+.list__button--remove {
+  background-color: red;
+  margin: 0 0 0 20px;
+}
