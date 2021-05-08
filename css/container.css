@@ -1,8 +1,13 @@
 .container {
   display: grid;
-  grid-auto-rows: minmax(40px, auto);
+  grid-auto-rows: minmax(60px, auto);
   grid-row-gap: 2px;
   margin: 10px 10px;
+}
+
+.container__item {
+  background-color: white;
+  padding: 0 10px;
 }
 
 .container__form {
@@ -17,21 +22,12 @@
   }
 }
 
-.container__item {
-  background-color: white;
-  padding: 0 10px;
-}
-
 .container__imput {
   background-color: white;
   padding: 10px;
   flex-grow: 1;
   border: 1px solid rgb(241 240 242);
   color: hsl(0, 0%, 60%);
-}
-
-.container__input:focus {
-  border-color: black;
 }
 
 .container__button {
