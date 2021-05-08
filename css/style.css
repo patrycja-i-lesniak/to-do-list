@@ -13,9 +13,12 @@ html {
   font-family: "Montserrat", sans-serif;
   font-size: smaller;
   max-width: 800px;
+  width:100%;
   margin: auto;
 }
 
 .headline {
-    margin:10px; 
+    margin:10px;
+    padding-top:20px
 }
+
