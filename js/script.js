@@ -27,10 +27,10 @@
   };
 
   const bindEvents = () => {
-    const removeButtons = document.querySelectorAll(".js-removeButton");
+    const removeTaskButtons = document.querySelectorAll(".js-removeButton");
 
-    removeButtons.forEach((removeButton, index) => {
-      removeButton.addEventListener("click", () => {
+    removeTaskButtons.forEach((removeTaskButton, index) => {
+      removeTaskButton.addEventListener("click", () => {
         removeTask(index);
       });
     });
@@ -56,7 +56,7 @@
         <span class=${
           task.done ? '"list__span list__span--done">' : '"list__span">'
         }${task.content}</span>
-        <button class="list__button list__button--remove js-removeButton">delete</button>
+        <button class="list__button list__button--remove js-removeTaskButton">delete</button>
     </li>
     `;
     }
@@ -69,8 +69,8 @@
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    const newTaskContent = document.querySelector(".js-newTask").value.trim();
     const newTask = document.querySelector(".js-newTask");
+    const newTaskContent = newTask.value.trim();
 
     if (newTaskContent === "") {
       activateInput(newTask);
