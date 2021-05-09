@@ -22,11 +22,15 @@
   }
 }
 
-.container__imput {
+.container__headline {
+margin-left:10px;
+}
+
+.container__input {
   background-color: white;
   padding: 10px;
   flex-grow: 1;
-  border: 1px solid rgb(241 240 242);
+  border: 2px solid rgb(241 240 242);
   color: hsl(0, 0%, 60%);
 }
 
@@ -36,7 +40,7 @@
   color: white;
   padding: 10px;
   margin-left: 15px;
-  border: 1px solid teal;
+  border: 2px solid teal;
 }
 
 @media (max-width: 768px) {
