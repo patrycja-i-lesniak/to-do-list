@@ -1,6 +1,5 @@
 {
-  const tasks = [
-  ];
+  const tasks = [];
 
   const addNewTask = (newTaskContent) => {
     tasks.push({ content: newTaskContent });
@@ -10,6 +9,7 @@
   const resetInput = (newTask) => {
     newTask.value = "";
     newTask.focus();
+    activateInput();
   };
 
   const activateInput = (newTask) => {
@@ -53,9 +53,10 @@
         <button class="list__button js-doneButton">${
           task.done ? "done" : ""
         }</button>   
-        <span class=${
-          task.done ? '"list__span list__span--done">' : '"list__span">'
-        }${task.content}</span>
+        <span 
+        class="list__span${task.done ? " list__span--done" : ""}">
+        ${task.content}
+       </span>
         <button class="list__button list__button--remove js-removeTaskButton">delete</button>
     </li>
     `;
