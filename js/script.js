@@ -53,9 +53,9 @@
         <button class="list__button js-doneButton">${
           task.done ? "done" : ""
         }</button>   
-        <section class=${
+        <span class=${
           task.done ? '"list__span list__span--done">' : '"list__span">'
-        }${task.content}</section>
+        }${task.content}</span>
         <button class="list__button list__button--remove js-removeButton">delete</button>
     </li>
     `;
