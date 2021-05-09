@@ -9,7 +9,6 @@
   const resetInput = (newTask) => {
     newTask.value = "";
     newTask.focus();
-    activateInput();
   };
 
   const activateInput = (newTask) => {
