@@ -43,16 +43,15 @@
     });
   };
 
-  const render = () => {
+  const renderTasks = () => {
     let htmlString = "";
 
     for (const task of tasks) {
       htmlString += `
     <li class="list__item">
-        <button class="list__button js-doneButton">${
-          task.done ? "done" : ""
-        }</button>   
-        <span 
+        <button class="list__button js-doneButton">${task.done ? "done" : ""
+        }</button>
+        <span
         class="list__span${task.done ? " list__span--done" : ""}">
         ${task.content}
        </span>
@@ -62,7 +61,10 @@
     }
 
     document.querySelector(".js-tasks").innerHTML = htmlString;
+  };
 
+  const render = () => {
+    renderTasks();
     bindEvents();
   };
 
