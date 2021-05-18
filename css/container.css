@@ -43,6 +43,13 @@ margin-left:10px;
   border: 2px solid teal;
 }
 
+.container__button:hover {
+  background-color: hsl(180, 100%, 35%);
+  border: 2px solid hsl(180, 100%, 35%);
+  transition: 1s;
+  transform:scale(1.05);
+}
+
 @media (max-width: 768px) {
   .container__button {
     flex-basis: 100%;
