@@ -5,12 +5,10 @@
   border-bottom: solid 1px #ddd;
   padding: 10px 0;
   line-height: 1.5;
-  
 }
 .list__span {
-  word-break: break-all; 
+  word-break: break-all;
   flex-basis: 100%;
-   
 }
 
 .list__span--done {
@@ -28,7 +26,16 @@
   font-size: 16px;
 }
 
+.list__button:hover {
+  background-color: hsl(120, 100%, 35%);
+  transition: 1s;
+}
+
 .list__button--remove {
   background-color:crimson
 }
 
+.list__button--remove:hover {
+  background-color:hsl(348, 83%, 57%);
+
+}
