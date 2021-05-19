@@ -19,7 +19,10 @@
   };
 
   const removeTask = (taskIndex) => {
-    tasks.splice(taskIndex, 1);
+    tasks = [
+      ...tasks.slice(0, taskIndex),
+      ...tasks.slice(taskIndex + 1),
+    ];
     render();
   };
 
@@ -46,22 +49,6 @@
     });
   };
 
-  const renderButton = () => {
-    let htmlString = "";
-    for (let task of tasks) {
-      htmlString += `
-    <li>
-    <button class="container__newButton js-hideDoneButton">${task.done ? "ukryj ukończone" : ""
-        }</button>
-    <button class="container__newButton js-doneAllButton">Ukończ wszystkie</button>
-    </li>
-  `;
-    }
-    document.querySelector(".js-option").innerHTML = htmlString;
-  };
-
-
-
   const renderTasks = () => {
     let htmlString = "";
 
@@ -86,6 +73,7 @@
     renderTasks();
     bindRemoveEvents();
     bindToggleDoneEvents();
+    renderButtons();
   };
 
   const onFormSubmit = (event) => {
