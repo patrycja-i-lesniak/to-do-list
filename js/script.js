@@ -93,14 +93,16 @@
     for (const task of tasks) {
       htmlString +=
         `
-      <li class="list__item ${task.done && hideTaskDone ? "list__item--hide" : ""}">
-          <button class="list__button js-doneButton">${task.done ? "done" : ""}
-        </button>
-          <span
-          class="list__span${task.done ? " list__span--done" : ""}">
-      ${task.content}
-         </span>
-      <button class="list__button list__button--remove js-removeTaskButton">delete</button>
+      <li class="list__item 
+          ${task.done && hideTaskDone ? "list__item--hide" : ""}">
+          <button class="list__button js-doneButton">
+            ${task.done ? "done" : ""}
+          </button>
+          <span class="list__span
+            ${task.done ? " list__span--done" : ""}">
+            ${task.content}
+            </span>
+           <button class="list__button list__button--remove js-removeTaskButton">delete</button>
       </li>
       `;
     }
@@ -115,10 +117,10 @@
       actionButtons += `
         <button class="container__actionButton js-hideTaskDoneButton"
         </button>
-        ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
+          ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
         </button >
         <button class="container__actionButton js-completeAllButton"
-        ${tasks.every(task => task.done) ? "disabled" : ""} >
+          ${tasks.every(task => task.done) ? "disabled" : ""} >
         Ukończ wszystkie
         </button>
     `;
