@@ -12,8 +12,8 @@ html {
   background-color:rgb(241 240 242);
   font-family: "Montserrat", sans-serif;
   font-size: smaller;
-  max-width: 800px;
-  margin: auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .headline {
