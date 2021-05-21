@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-auto-rows: minmax(60px, auto);
+  grid-auto-rows: minmax(50px, auto);
   grid-row-gap: 2px;
   margin: 10px 10px;
 }
@@ -60,4 +60,36 @@ margin-left:10px;
 .container__tasks {
   padding: 0px;
   margin: 5px 5px 20px;
+}
+
+.container__tasksList {
+  display:flex;
+  align-items:start;
+  grid-gap: 10px;
+  justify-content: space-between;
+  flex-wrap:wrap;
+}
+
+.container__actionButton {
+  background-color:transparent;
+  color: teal;
+  border: none;
+  align-self:center;
+  flex-wrap:wrap
+}
+
+@media (max-width: 768px) {
+  .container__actionButton {
+    flex-direction: column;
+    align-self:center;
+    flex-wrap:wrap;
+  }
+}
+
+.container__actionButton:hover {
+  color: hsl(180, 100%, 35%);
+}
+
+.container__actionButton:disabled {
+  color:grey;
 }
