@@ -6,6 +6,11 @@
   padding: 10px 0;
   line-height: 1.5;
 }
+
+.list__item--hide {
+  display:none;
+}
+
 .list__span {
   word-break: break-all;
   flex-basis: 100%;
