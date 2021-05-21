@@ -41,6 +41,17 @@
     render();
   };
 
+  const toggleUncheckDone = () => {
+    tasks.forEach((task, index) => {
+      tasks = [
+        ...tasks.slice(0, index),
+        { ...task, done: false },
+        ...tasks.slice(index + 1),
+      ];
+    });
+    render();
+  };
+
   const completeAllTasks = () => {
     tasks.forEach((task, index) => {
       tasks = [
@@ -79,7 +90,15 @@
       });
   };
 
-  const bindCompleteAllEvent = () => {
+  const bindUncheckEvents = () => {
+    const uncheckButton = document.querySelector(".js-uncheckButton");
+    if (uncheckButton)
+      uncheckButton.addEventListener("click", () => {
+        toggleUncheckDone();
+      });
+  };
+
+  const bindCompleteAllEvents = () => {
     const completeAllButton = document.querySelector(".js-completeAllButton");
     if (completeAllButton)
       completeAllButton.addEventListener("click", () => {
@@ -94,7 +113,7 @@
       htmlString +=
         `
       <li class="list__item 
-          ${task.done && hideTaskDone ? "list__item--hide" : ""}">
+      ${task.done && hideTaskDone ? "list__item--hide" : ""}">
           <button class="list__button js-doneButton">
             ${task.done ? "done" : ""}
           </button>
@@ -116,6 +135,7 @@
     if (tasks.length > 0) {
       actionButtons += `
         <button class="container__actionButton js-hideTaskDoneButton"
+        ${ tasks.every( task => !task.done) ? "disabled" : ""}
         </button>
           ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
         </button >
@@ -129,13 +149,30 @@
     document.querySelector(".js-actionButton").innerHTML = actionButtons;
   };
 
+const renderUncheckButton = () => {
+  let uncheckButton = "";
+
+    if (tasks.length > 0) {
+      uncheckButton += `
+      <button class="container__actionButton container__actionButton--undone js-uncheckButton"
+          ${tasks.every(task => !task.done) ? "disabled" : ""} >
+        Odznacz wszystkie
+        </button>
+    `;
+    }
+
+    document.querySelector(".js-uncheckButton").innerHTML = uncheckButton;
+  };
+
   const render = () => {
     renderTasks();
     renderButtons();
+    renderUncheckButton();
     bindToggleDoneEvents();
     bindRemoveEvents();
     bindHideTaskDoneEvents();
-    bindCompleteAllEvent();
+    bindCompleteAllEvents();
+    bindUncheckEvents();
   };
 
   const onFormSubmit = (event) => {
