@@ -51,6 +51,13 @@
     render();
   };
 
+  const deleteAllTasks = () => {
+    tasks = [
+      ...tasks.splice(0, tasks.lenght),
+    ];
+    render();
+  };
+
   const bindToggleDoneEvents = () => {
     const toggleDoneButtons = document.querySelectorAll(".js-doneButton");
     toggleDoneButtons.forEach((toggleDoneButton, index) => {
@@ -93,6 +100,14 @@
         completeAllTasks();
       });
   };
+  const bindDeleteAllEvents = () => {
+    const deleteAllButton = document.querySelector(".js-deleteAllButton");
+    if (deleteAllButton)
+      deleteAllButton.addEventListener("click", () => {
+        deleteAllTasks();
+      });
+  };
+
 
   const renderTasks = () => {
     let htmlString = "";
@@ -146,6 +161,9 @@ const renderUncheckButton = () => {
           ${tasks.every(task => !task.done) ? "disabled" : ""} >
         Odznacz wszystkie
         </button>
+        <button class="container__actionButton js-deleteAllButton">
+        Usuń wszystkie
+        </button>
     `;
     }
 
@@ -161,6 +179,7 @@ const renderUncheckButton = () => {
     bindHideTaskDoneEvents();
     bindCompleteAllEvents();
     bindUncheckEvents();
+    bindDeleteAllEvents();
   };
 
   const onFormSubmit = (event) => {
