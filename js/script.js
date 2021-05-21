@@ -112,7 +112,7 @@
     for (const task of tasks) {
       htmlString +=
         `
-      <li class="list__item 
+      <li class="list__item
       ${task.done && hideTaskDone ? "list__item--hide" : ""}">
           <button class="list__button js-doneButton">
             ${task.done ? "done" : ""}
@@ -154,7 +154,7 @@ const renderUncheckButton = () => {
 
     if (tasks.length > 0) {
       uncheckButton += `
-      <button class="container__actionButton container__actionButton--undone js-uncheckButton"
+      <button class="container__actionButton js-uncheckButton"
           ${tasks.every(task => !task.done) ? "disabled" : ""} >
         Odznacz wszystkie
         </button>
