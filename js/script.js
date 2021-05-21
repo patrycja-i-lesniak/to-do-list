@@ -42,24 +42,12 @@
   };
 
   const toggleUncheckDone = () => {
-    tasks.forEach((task, index) => {
-      tasks = [
-        ...tasks.slice(0, index),
-        { ...task, done: false },
-        ...tasks.slice(index + 1),
-      ];
-    });
+    tasks.map(task => task.done = false);
     render();
   };
 
   const completeAllTasks = () => {
-    tasks.forEach((task, index) => {
-      tasks = [
-        ...tasks.slice(0, index),
-        { ...task, done: true },
-        ...tasks.slice(index + 1),
-      ];
-    });
+    tasks.map(task => task.done = true);
     render();
   };
 
