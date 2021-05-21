@@ -1,10 +1,11 @@
 .list__item {
-  display: flex;
-  flex-direction:row;
-  align-items: center;
-  border-bottom: solid 1px #ddd;
-  padding: 10px 0;
-  line-height: 1.5;
+  display:grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 20px;
+  align-items:center;
+  margin:0 20px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 .list__item--hide {
@@ -13,7 +14,6 @@
 
 .list__span {
   word-break: break-all;
-  flex-basis: 100%;
 }
 
 .list__span--done {
@@ -21,18 +21,21 @@
 }
 
 .list__button {
+  width: 30px;
   height: 30px;
   color: white;
   border: none;
   background-color: green;
-  margin:0 10px;
-  flex: 0 0 30px;
   font-family: 'Material Icons Outlined';
   font-size: 16px;
 }
 
 .list__button:hover {
   background-color: hsl(120, 100%, 35%);
+  transition: 1s;
+}
+.list__button:active {
+  background-color: hsl(120, 100%, 45%);
   transition: 1s;
 }
 
@@ -43,4 +46,9 @@
 .list__button--remove:hover {
   background-color:hsl(348, 83%, 57%);
 
+}
+
+.list__button--remove:active {
+  background-color:hsl(348, 83%, 67%);
+  transition: 1s;
 }
