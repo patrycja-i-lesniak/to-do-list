@@ -29,6 +29,7 @@
   background-color: green;
   font-family: 'Material Icons Outlined';
   font-size: 16px;
+  text-align:center;
 }
 
 .list__button:hover {
