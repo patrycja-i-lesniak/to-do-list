@@ -132,48 +132,43 @@
     document.querySelector(".js-tasks").innerHTML = htmlString;
   };
 
-  const renderOptionalButtonsTop = () => {
-    let optionalButtonsTop = "";
+const renderButtons = () => {
+  let buttonsTop = "";
 
-    if (tasks.length > 0) {
-      optionalButtonsTop += `
-        <button class="container__optionalButtons js-hideTaskDoneButton"
-        ${ tasks.every( task => !task.done) ? "disabled" : ""}
-        </button>
-          ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
-        </button >
-        <button class="container__optionalButtons js-completeAllTasksButton"
-          ${tasks.every(task => task.done) ? "disabled" : ""} >
-        Ukończ wszystkie
-        </button>
-    `;
+  if (tasks.length > 0) {
+    buttonsTop += `
+      <button class="container__optionalButtons js-hideTaskDoneButton"
+      ${ tasks.every( task => !task.done) ? "disabled" : ""}
+      </button>
+        ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
+      </button >
+      <button class="container__optionalButtons js-completeAllTasksButton"
+        ${tasks.every(task => task.done) ? "disabled" : ""} >
+      Ukończ wszystkie
+      </button>
+      `;
     }
+    document.querySelector(".js-buttonsTop").innerHTML = buttonsTop;
 
-    document.querySelector(".js-optionalButtonsTop").innerHTML = optionalButtonsTop;
-  };
-
-const renderOptionalButtonsBottom = () => {
-  let optionalButtonsBottom = "";
+    let buttonsBottom = "";
 
     if (tasks.length > 0) {
-      optionalButtonsBottom += `
+      buttonsBottom += `
       <button class=" container__optionalButtons js-unselectedAllTaskButton"
-          ${tasks.every(task => !task.done) ? "disabled" : ""} >
-        Odznacz wszystkie
-        </button>
-        <button class=" container__optionalButtons js-deleteAllTasksButton">
-        Usuń wszystkie
-        </button>
-    `;
+        ${tasks.every(task => !task.done) ? "disabled" : ""} >
+      Odznacz wszystkie
+      </button>
+      <button class=" container__optionalButtons js-deleteAllTasksButton">
+      Usuń wszystkie
+      </button>
+      `;
     }
-
-    document.querySelector(".js-optionalButtonsBottom").innerHTML = optionalButtonsBottom;
+  document.querySelector(".js-buttonsBottom").innerHTML = buttonsBottom;
   };
 
   const render = () => {
     renderTasks();
-    renderOptionalButtonsTop();
-    renderOptionalButtonsBottom();
+    renderButtons();
     bindToggleDoneEvents();
     bindRemoveEvents();
     bindHideTaskDoneEvents();
