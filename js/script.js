@@ -41,7 +41,7 @@
     render();
   };
 
-  const toggleUncheckDone = () => {
+  const toggleStatusOfAllTask = () => {
     tasks.map(task => task.done = false);
     render();
   };
@@ -85,25 +85,25 @@
       });
   };
 
-  const bindUncheckEvents = () => {
-    const uncheckButton = document.querySelector(".js-uncheckButton");
-    if (uncheckButton)
-      uncheckButton.addEventListener("click", () => {
-        toggleUncheckDone();
+  const bindUnselectedAllTaskButtonEvents = () => {
+    const unselectedAllTaskButton = document.querySelector(".js-unselectedAllTaskButton");
+    if (unselectedAllTaskButton)
+    unselectedAllTaskButton.addEventListener("click", () => {
+        toggleStatusOfAllTask();
       });
   };
 
-  const bindCompleteAllEvents = () => {
-    const completeAllButton = document.querySelector(".js-completeAllButton");
-    if (completeAllButton)
-      completeAllButton.addEventListener("click", () => {
+  const bindCompleteAllTasksEvents = () => {
+    const completeAllTasksButton = document.querySelector(".js-completeAllTasksButton");
+    if (completeAllTasksButton)
+      completeAllTasksButton.addEventListener("click", () => {
         completeAllTasks();
       });
   };
-  const bindDeleteAllEvents = () => {
-    const deleteAllButton = document.querySelector(".js-deleteAllButton");
-    if (deleteAllButton)
-      deleteAllButton.addEventListener("click", () => {
+  const bindDeleteAllTasksButtonEvents = () => {
+    const deleteAllTasksButton = document.querySelector(".js-deleteAllTasksButton");
+    if (deleteAllTasksButton)
+    deleteAllTasksButton.addEventListener("click", () => {
         deleteAllTasks();
       });
   };
@@ -132,54 +132,54 @@
     document.querySelector(".js-tasks").innerHTML = htmlString;
   };
 
-  const renderButtons = () => {
-    let actionButtons = "";
+  const renderOptionalButtonsTop = () => {
+    let optionalButtonsTop = "";
 
     if (tasks.length > 0) {
-      actionButtons += `
+      optionalButtonsTop += `
         <button class="container__optionalButtons js-hideTaskDoneButton"
         ${ tasks.every( task => !task.done) ? "disabled" : ""}
         </button>
           ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
         </button >
-        <button class="container__optionalButtons js-completeAllButton"
+        <button class="container__optionalButtons js-completeAllTasksButton"
           ${tasks.every(task => task.done) ? "disabled" : ""} >
         Ukończ wszystkie
         </button>
     `;
     }
 
-    document.querySelector(".js-actionButton").innerHTML = actionButtons;
+    document.querySelector(".js-optionalButtonsTop").innerHTML = optionalButtonsTop;
   };
 
-const renderUncheckButton = () => {
-  let uncheckButton = "";
+const renderOptionalButtonsBottom = () => {
+  let optionalButtonsBottom = "";
 
     if (tasks.length > 0) {
-      uncheckButton += `
-      <button class=" container__optionalButtons js-uncheckButton"
+      optionalButtonsBottom += `
+      <button class=" container__optionalButtons js-unselectedAllTaskButton"
           ${tasks.every(task => !task.done) ? "disabled" : ""} >
         Odznacz wszystkie
         </button>
-        <button class=" container__optionalButtons js-deleteAllButton">
+        <button class=" container__optionalButtons js-deleteAllTasksButton">
         Usuń wszystkie
         </button>
     `;
     }
 
-    document.querySelector(".js-uncheckButton").innerHTML = uncheckButton;
+    document.querySelector(".js-optionalButtonsBottom").innerHTML = optionalButtonsBottom;
   };
 
   const render = () => {
     renderTasks();
-    renderButtons();
-    renderUncheckButton();
+    renderOptionalButtonsTop();
+    renderOptionalButtonsBottom();
     bindToggleDoneEvents();
     bindRemoveEvents();
     bindHideTaskDoneEvents();
-    bindCompleteAllEvents();
-    bindUncheckEvents();
-    bindDeleteAllEvents();
+    bindCompleteAllTasksEvents();
+    bindUnselectedAllTaskButtonEvents();
+    bindDeleteAllTasksButtonEvents();
   };
 
   const onFormSubmit = (event) => {
