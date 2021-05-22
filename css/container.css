@@ -4,6 +4,7 @@
   grid-row-gap: 2px;
   margin: 10px 10px;
   box-shadow: 0 0 5px hsl(0, 0%, 86%);
+  
 }
 
 .container__item {
@@ -11,17 +12,24 @@
 }
 
 .container__headline {
-  margin: 20px;
+  margin-left: 20px;
+}
+
+@media (max-width: 498px) {
+.container__headline {
+  text-align: center;
+  margin-left: 0;
+  }
 }
 
 .container__form {
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-gap: 20px;
+  grid-gap: 10px;
   margin: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 498px) {
   .container__form {
     grid-template-columns: 1fr;
   }
@@ -40,62 +48,63 @@
   border: none;
 }
 
-@media (max-width: 768px) {
-  .container__button:hover {
-    transition: 1s;
-    transform: scale(1.01);
-  }
-}
-
 .container__button:hover {
-  background: hsl(180, 100%, 35%);
-  transition: 1s;
+  background: hsl(180, 100%, 30%);
   transform: scale(1.01);
+  transition: 1s;
 }
 
 .container__button:active {
-  background: hsl(180, 100%, 45%);
+  background: hsl(180, 100%, 50%);
+  transform: scale(1.01);
+  transition: 1s;
 }
 
-.container__tasksList {
-  display: flex;
-  flex-direction:row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: white;
+
+.container__optionalFunctions {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap:10px;
+    align-items:center;
+
 }
 
-@media (max-width: 768px) {
-  .container__taskList {
-    flex-direction:column;
-    flex-grow:1;
-    word-break: break-all;
+@media (max-width: 498px) {
+  .container__optionalFunctions {
+    grid-template-columns: 1fr;
+    justify-content:center;
   }
 }
 
-.container__actionButton {
+.container__optionalButtons {
+  display:grid;
+  grid-template-columns: auto auto;
+  gap:10px;
   background-color: transparent;
   color: teal;
   border: none;
-  padding: 10px;
-  display:flex;
-  justify-content: flex-end;
-  flex-wrap:wrap;
 }
 
-.container__actionButton--flex {
-  display:flex;
-  justify-content: flex-end;
-  flex-wrap:wrap;
-  list-style: none;
+@media (max-width: 498px) {
+  .container__optionalButtons {
+    grid-template-columns: 1fr;
+    gap:10px;
+    margin-bottom: 10px;
+  }
 }
 
-.container__actionButton:hover {
+.container__optionalButtons:hover {
   color: hsl(180, 100%, 35%);
 }
 
-.container__actionButton:disabled {
+  .container__optionalButtons:disabled {
   color: grey;
+}
+
+.container__optionalButtons--bottom {
+  justify-content:right;
+  padding:0px;
+  margin: 10px;
 }
 
 .container__tasks {
@@ -106,6 +115,4 @@
   margin: 0;
   list-style: none;
   align-items: center;
-}
-
-
+  }
