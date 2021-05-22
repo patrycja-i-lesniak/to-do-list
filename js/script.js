@@ -137,12 +137,12 @@
 
     if (tasks.length > 0) {
       actionButtons += `
-        <button class="container__actionButton js-hideTaskDoneButton"
+        <button class="container__optionalButtons js-hideTaskDoneButton"
         ${ tasks.every( task => !task.done) ? "disabled" : ""}
         </button>
           ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
         </button >
-        <button class="container__actionButton js-completeAllButton"
+        <button class="container__optionalButtons js-completeAllButton"
           ${tasks.every(task => task.done) ? "disabled" : ""} >
         Ukończ wszystkie
         </button>
@@ -157,11 +157,11 @@ const renderUncheckButton = () => {
 
     if (tasks.length > 0) {
       uncheckButton += `
-      <button class="container__actionButton js-uncheckButton"
+      <button class=" container__optionalButtons js-uncheckButton"
           ${tasks.every(task => !task.done) ? "disabled" : ""} >
         Odznacz wszystkie
         </button>
-        <button class="container__actionButton js-deleteAllButton">
+        <button class=" container__optionalButtons js-deleteAllButton">
         Usuń wszystkie
         </button>
     `;
