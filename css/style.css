@@ -9,7 +9,7 @@ html {
 }
 
 .body {
-  background-color:rgb(241 240 242);
+  background-color: rgb(241 240 242);
   font-family: "Montserrat", sans-serif;
   font-size: smaller;
   max-width: 900px;
@@ -17,7 +17,12 @@ html {
 }
 
 .headline {
-    margin:10px;
-    padding-top:20px
+  margin: 10px;
+  padding-top: 20px;
 }
 
+@media (max-width: 498px) {
+  .headline {
+    text-align: center;
+  }
+}

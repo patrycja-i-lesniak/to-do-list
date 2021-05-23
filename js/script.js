@@ -92,9 +92,9 @@
     if (!hideTaskDoneButton) {
       return;
     }
-      hideTaskDoneButton.addEventListener("click", () => {
-        toggleHideTaskDone();
-      });
+    hideTaskDoneButton.addEventListener("click", () => {
+      toggleHideTaskDone();
+    });
   };
 
   const bindUnselectedAllTaskButtonEvent = () => {
@@ -102,9 +102,9 @@
     if (!unselectedAllTaskButton) {
       return;
     }
-      unselectedAllTaskButton.addEventListener("click", () => {
-        toggleStatusOfAllTask();
-      });
+    unselectedAllTaskButton.addEventListener("click", () => {
+      toggleStatusOfAllTask();
+    });
   };
 
   const bindCompleteAllTasksEvent = () => {
@@ -112,9 +112,9 @@
     if (!completeAllTasksButton) {
       return;
     }
-      completeAllTasksButton.addEventListener("click", () => {
-        completeAllTasks();
-      });
+    completeAllTasksButton.addEventListener("click", () => {
+      completeAllTasks();
+    });
   };
 
   const bindDeleteAllTasksButtonEvent = () => {
@@ -122,9 +122,9 @@
     if (!deleteAllTasksButton) {
       return;
     }
-      deleteAllTasksButton.addEventListener("click", () => {
-        deleteAllTasks();
-      });
+    deleteAllTasksButton.addEventListener("click", () => {
+      deleteAllTasks();
+    });
   };
 
 

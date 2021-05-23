@@ -1,16 +1,15 @@
 .list__item {
-  display:grid;
+  display: grid;
   grid-template-columns: auto 1fr auto;
   grid-gap: 20px;
-  align-items:center;
-  margin:0 20px;
+  align-items: center;
+  margin: 0 20px;
   padding: 10px;
   border-bottom: 1px solid #ddd;
-
 }
 
 .list__item--hide {
-  display:none;
+  display: none;
 }
 
 .list__span {
@@ -27,7 +26,7 @@
   color: white;
   border: none;
   background-color: green;
-  font-family: 'Material Icons Outlined';
+  font-family: "Material Icons Outlined";
   font-size: 16px;
   padding: 0;
 }
@@ -42,15 +41,14 @@
 }
 
 .list__button--remove {
-  background-color:crimson
+  background-color: crimson;
 }
 
 .list__button--remove:hover {
-  background-color:hsl(348, 83%, 57%);
-
+  background-color: hsl(348, 83%, 57%);
 }
 
 .list__button--remove:active {
-  background-color:hsl(348, 83%, 67%);
+  background-color: hsl(348, 83%, 67%);
   transition: 1s;
 }
