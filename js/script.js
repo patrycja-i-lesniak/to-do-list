@@ -20,10 +20,13 @@
   };
 
   const toggleTaskDone = (taskIndex) => {
-   const task = tasks[taskIndex];
+    const task = tasks[taskIndex];
     tasks = [
       ...tasks.slice(0, taskIndex),
-      { ...task, done: !task.done },
+      {
+        ...task,
+        done: !task.done
+      },
       ...tasks.slice(taskIndex + 1),
     ];
     render();
@@ -43,12 +46,18 @@
   };
 
   const toggleStatusOfAllTask = () => {
-    tasks.map(task => task.done = false);
+    tasks = tasks.map(task => ({
+      ...task,
+      done: false,
+    }));
     render();
   };
 
   const completeAllTasks = () => {
-    tasks.map(task => task.done = true);
+    tasks = tasks.map(task => ({
+      ...task,
+      done: true,
+    }));
     render();
   };
 
@@ -89,7 +98,7 @@
   const bindUnselectedAllTaskButtonEvents = () => {
     const unselectedAllTaskButton = document.querySelector(".js-unselectedAllTaskButton");
     if (unselectedAllTaskButton)
-    unselectedAllTaskButton.addEventListener("click", () => {
+      unselectedAllTaskButton.addEventListener("click", () => {
         toggleStatusOfAllTask();
       });
   };
@@ -104,7 +113,7 @@
   const bindDeleteAllTasksButtonEvents = () => {
     const deleteAllTasksButton = document.querySelector(".js-deleteAllTasksButton");
     if (deleteAllTasksButton)
-    deleteAllTasksButton.addEventListener("click", () => {
+      deleteAllTasksButton.addEventListener("click", () => {
         deleteAllTasks();
       });
   };
@@ -133,13 +142,13 @@
     document.querySelector(".js-tasks").innerHTML = htmlString;
   };
 
-const renderButtons = () => {
-  let buttonsTop = "";
+  const renderButtons = () => {
+    let buttonsTop = "";
 
-  if (tasks.length > 0) {
-    buttonsTop += `
+    if (tasks.length > 0) {
+      buttonsTop += `
       <button class="container__optionalButtons js-hideTaskDoneButton"
-      ${ tasks.every( task => !task.done) ? "disabled" : ""}
+      ${tasks.every(task => !task.done) ? "disabled" : ""}
       </button>
         ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
       </button >
@@ -164,7 +173,7 @@ const renderButtons = () => {
       </button>
       `;
     }
-  document.querySelector(".js-buttonsBottom").innerHTML = buttonsBottom;
+    document.querySelector(".js-buttonsBottom").innerHTML = buttonsBottom;
   };
 
   const render = () => {
