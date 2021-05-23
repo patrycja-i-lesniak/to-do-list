@@ -87,32 +87,41 @@
     });
   };
 
-  const bindHideTaskDoneEvents = () => {
+  const bindHideTaskDoneEvent = () => {
     const hideTaskDoneButton = document.querySelector(".js-hideTaskDoneButton");
-    if (hideTaskDoneButton)
+    if (!hideTaskDoneButton) {
+      return;
+    }
       hideTaskDoneButton.addEventListener("click", () => {
         toggleHideTaskDone();
       });
   };
 
-  const bindUnselectedAllTaskButtonEvents = () => {
+  const bindUnselectedAllTaskButtonEvent = () => {
     const unselectedAllTaskButton = document.querySelector(".js-unselectedAllTaskButton");
-    if (unselectedAllTaskButton)
+    if (!unselectedAllTaskButton) {
+      return;
+    }
       unselectedAllTaskButton.addEventListener("click", () => {
         toggleStatusOfAllTask();
       });
   };
 
-  const bindCompleteAllTasksEvents = () => {
+  const bindCompleteAllTasksEvent = () => {
     const completeAllTasksButton = document.querySelector(".js-completeAllTasksButton");
-    if (completeAllTasksButton)
+    if (!completeAllTasksButton) {
+      return;
+    }
       completeAllTasksButton.addEventListener("click", () => {
         completeAllTasks();
       });
   };
-  const bindDeleteAllTasksButtonEvents = () => {
+
+  const bindDeleteAllTasksButtonEvent = () => {
     const deleteAllTasksButton = document.querySelector(".js-deleteAllTasksButton");
-    if (deleteAllTasksButton)
+    if (!deleteAllTasksButton) {
+      return;
+    }
       deleteAllTasksButton.addEventListener("click", () => {
         deleteAllTasks();
       });
@@ -126,7 +135,7 @@
       htmlString +=
         `
       <li class="list__item
-      ${task.done && hideTaskDone ? "list__item--hide" : ""}">
+      ${task.done && hideTaskDone ? " list__item--hide" : ""}">
           <button class="list__button js-doneButton">
             ${task.done ? "done" : ""}
           </button>
@@ -148,13 +157,13 @@
     if (tasks.length > 0) {
       buttonsTop += `
       <button class="container__optionalButtons js-hideTaskDoneButton"
-      ${tasks.every(task => !task.done) ? "disabled" : ""}
+        ${tasks.every(task => !task.done) ? "disabled" : ""}
       </button>
         ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
       </button >
       <button class="container__optionalButtons js-completeAllTasksButton"
         ${tasks.every(task => task.done) ? "disabled" : ""} >
-      Ukończ wszystkie
+          Ukończ wszystkie
       </button>
       `;
     }
@@ -181,10 +190,10 @@
     renderButtons();
     bindToggleDoneEvents();
     bindRemoveEvents();
-    bindHideTaskDoneEvents();
-    bindCompleteAllTasksEvents();
-    bindUnselectedAllTaskButtonEvents();
-    bindDeleteAllTasksButtonEvents();
+    bindHideTaskDoneEvent();
+    bindCompleteAllTasksEvent();
+    bindUnselectedAllTaskButtonEvent();
+    bindDeleteAllTasksButtonEvent();
   };
 
   const onFormSubmit = (event) => {
