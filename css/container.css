@@ -53,6 +53,7 @@
   background: hsl(180, 100%, 30%);
   transform: scale(1.01);
   transition: 1s;
+  cursor: pointer;
 }
 
 .container__button:active {
@@ -81,6 +82,7 @@
   background-color: transparent;
   color: teal;
   border: none;
+  cursor: pointer;
 }
 
 @media (max-width: 498px) {
@@ -98,6 +100,7 @@
 
 .container__optionalButtons:disabled {
   color: grey;
+  cursor: none;
 }
 
 .container__optionalButtons--bottom {
