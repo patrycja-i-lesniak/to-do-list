@@ -2,13 +2,13 @@
   let tasks = [];
   let hideTaskDone = false;
 
-  const activateInput = (newTask) => {
+  const setFocusOnInput = (newTask) => {
     newTask.focus();
   };
 
   const resetInput = (newTask) => {
     newTask.value = "";
-    activateInput(newTask);
+    setFocusOnInput(newTask);
   };
 
   const addNewTask = (newTaskContent) => {
@@ -45,7 +45,7 @@
     render();
   };
 
-  const toggleStatusOfAllTask = () => {
+  const setAllTasksNotDone = () => {
     tasks = tasks.map(task => ({
       ...task,
       done: false,
@@ -88,22 +88,22 @@
   };
 
   const bindHideTaskDoneEvent = () => {
-    const hideTaskDoneButton = document.querySelector(".js-hideTaskDoneButton");
-    if (!hideTaskDoneButton) {
+    const hideDoneTasksButton = document.querySelector(".js-hideTaskDoneButton");
+    if (!hideDoneTasksButton) {
       return;
     }
-    hideTaskDoneButton.addEventListener("click", () => {
+    hideDoneTasksButton.addEventListener("click", () => {
       toggleHideTaskDone();
     });
   };
 
-  const bindUnselectedAllTaskButtonEvent = () => {
-    const unselectedAllTaskButton = document.querySelector(".js-unselectedAllTaskButton");
-    if (!unselectedAllTaskButton) {
+  const bindUnselectAllTaskButtonEvent = () => {
+    const unselectAllTasksButton = document.querySelector(".js-unselectedAllTaskButton");
+    if (!unselectAllTasksButton) {
       return;
     }
-    unselectedAllTaskButton.addEventListener("click", () => {
-      toggleStatusOfAllTask();
+    unselectAllTasksButton.addEventListener("click", () => {
+      setAllTasksNotDone();
     });
   };
 
@@ -160,9 +160,8 @@
         ${tasks.every(task => !task.done) ? "disabled" : ""}
       </button>
         ${hideTaskDone ? "Pokaż ukończone" : "Ukryj ukończone"}
-      </button >
       <button class="container__optionalButtons js-completeAllTasksButton"
-        ${tasks.every(task => task.done) ? "disabled" : ""} >
+        ${tasks.every(task => task.done) ? "disabled" : ""}>
           Ukończ wszystkie
       </button>
       `;
@@ -192,7 +191,7 @@
     bindRemoveEvents();
     bindHideTaskDoneEvent();
     bindCompleteAllTasksEvent();
-    bindUnselectedAllTaskButtonEvent();
+    bindUnselectAllTaskButtonEvent();
     bindDeleteAllTasksButtonEvent();
   };
 
@@ -203,7 +202,7 @@
     const newTaskContent = newTask.value.trim();
 
     if (newTaskContent === "") {
-      activateInput(newTask);
+      setFocusOnInput(newTask);
       return;
     }
     resetInput(newTask);
