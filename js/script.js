@@ -87,7 +87,7 @@
     });
   };
 
-  const bindHideTaskDoneEvent = () => {
+  const bindHideDoneTaskEvent = () => {
     const hideDoneTasksButton = document.querySelector(".js-hideTaskDoneButton");
     if (!hideDoneTasksButton) {
       return;
@@ -189,7 +189,7 @@
     renderButtons();
     bindToggleDoneEvents();
     bindRemoveEvents();
-    bindHideTaskDoneEvent();
+    bindHideDoneTaskEvent();
     bindCompleteAllTasksEvent();
     bindUnselectAllTaskButtonEvent();
     bindDeleteAllTasksButtonEvent();
