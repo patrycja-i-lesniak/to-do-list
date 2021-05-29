@@ -21,4 +21,4 @@ Project is created with:
 * ES6+;
 
 ## Demo
-https://trishya800.github.io/to-do-list/
+https://patrycja-i-lesniak.github.io/to-do-list/
